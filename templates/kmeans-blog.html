@@ -3,7 +3,7 @@
 <style>
 
 /* Style the heading for the article */
-.row>.blog-post-title {
+.main-cont>.blog-post-title {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
@@ -88,25 +88,11 @@ table {
   border-collapse: collapse;
 }
 
-/* Add some padding and a border to the table cells in the second article */
-table td, table th {
-  padding: .75rem;
-  border: 1px solid #ccc;
-}
-
-/* Style the table header in the second article */
-table th {
-  font-weight: bold;
-  text-align: left;
-  background-color: #f5f5f5;
-  border-color: #ddd;
-}
-
 </style>
 {% endblock  %}
 {% block content %}
 <div class="row g-5">
-    <div class="col-md-8">
+    <div class="col-md-8 main-cont">
       <h1 class="pb-4 blog-post-title mb-4 fst-italic border-bottom">
         KMeans
       </h1>

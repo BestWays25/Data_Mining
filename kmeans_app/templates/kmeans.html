@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>K-Means Clustering Results</h1>
+<p>Centroids:</p>
+<ul>
+{% for centroid in centroids %}
+    <li>{{ centroid }}</li>
+{% endfor %}
+</ul>
+<p>Labels:</p>
+<ul>
+{% for label in labels %}
+    <li>{{ label }}</li>
+{% endfor %}
+</ul>
+<p>Data:</p>
+<ul>
+{% for point in data %}
+    <li>{{ point }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

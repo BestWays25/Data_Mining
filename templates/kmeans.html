@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block style %}
+<style>
+  h1 {
+    color: #008080;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: #008080;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input[type="number"],
+  input[type="file"]{
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="number"]:focus,
+  input[type="file"]:focus{
+    outline: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 0 0 5px #008080;
+  }
+  
+  .button-km {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #008080;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button-km:hover {
+    background-color: #006666;
+  }
+</style>
+
+{% endblock  %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>KMeans Clustering</h1>
+        <form method="POST" id="kmeans-form">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="num-points">Number of Points:</label>
+            <input type="number" class="form-control" id="num-points" name="num_points" value="{{ num_points }}">
+          </div>
+          <div class="form-group">
+            <label for="num-clusters">Number of Clusters:</label>
+            <input type="number" class="form-control" id="num-clusters" name="num_clusters" value="{{ num_clusters }}">
+          </div>
+          <button type="submit" class="button-km">Run KMeans</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        {% if graphic %}
+          <img src="data:image/png;base64,{{ graphic }}" alt="KMeans Plot" class="img-fluid">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

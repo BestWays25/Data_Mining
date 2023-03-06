@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block styles %} 
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-top: 40px;
+    }
+    
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    li {
+      margin-top: 5px;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    tr:hover {
+      background-color: #ddd;
+    }
+    
+    .div-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .div-container > div {
+      flex: 1 1 300px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 10px;
+    }
+  button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  button:hover {
+    background-color: #3e8e41;
+  }
+</style>
+{% endblock %}
+
+<h1>Apriori Results</h1>
+<h2>Transaction Data</h2>
+<ul>
+  {% for transaction in transactions %}
+  <li>{{ transaction }}</li>
+  {% endfor %}
+</ul>
+<h2>Frequent Itemsets</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Itemset</th>
+            <th>Support</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for itemset in frequent_items %}
+        <tr>
+            <td>{{ itemset.item }}</td>
+            <td>{{ itemset.support }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Association Rules</h2>
+<div class="div-container">
+  {% for antecedent, consequent, confidence in association_rules%}
+  <div class="div-container">
+    {{ antecedent}} => {{consequent}} : {{confidence}}
+  </div>
+  {% endfor %}
+</div>
+<br><br>
+<div>
+    <form action="/data_set/apriori/" method="get">
+        <button type="submit">Go back to form page</button>
+    </form>
+    <form action="/data_set/" method="get">
+      <button type="submit">Home</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% comment %} <h1>K-Nearest Neighbors Results</h1> {% endcomment %}
+  <h1>KNN Results</h1>
+  {% if error_message %}
+      <p>{{ error_message }}</p>
+  {% else %}
+      <h2>Results:</h2>
+      <ul>
+        {% if results %}
+        <p>Predictions: {{ results }}</p>
+        <p>Actual classes: {{ classes }}</p> 
+        <div>
+            {{ picture }}
+        </div>
+        <img src="data:image/png;base64,{{ picture }}" />
+        <img src="my_plot.png" />
+        {% comment %} <img src="{{ plot_url }}" alt="Training and Test Data Sets"> {% endcomment %}
+        <div>
+    </div>
+      {% else %}
+        <p>No results to display</p>
+      {% endif %}
+      </ul>
+  {% endif %}
+<div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        KMeans
+      </h3>
+
+      <article class="blog-post">
+        <h2 class="blog-post-title">C’est quoi le KMeans  </h2>
+        <p>L'algorithme de clustering K-means est un algorithme d'apprentissage non supervisé utilisé pour diviser un ensemble de données en k groupes ou clusters. </p>
+        <p>Il est basé sur la minimisation de la variance intra-cluster et la maximisation de la variance inter-cluster.</p>
+        <h2>les étapes de base de KMeans</h2>
+        <p>Voici les étapes de base de l'algorithme :</p>
+
+        <ul>
+          <li>Initialisation : le nombre de clusters k est choisi et les centroides de ces clusters sont initialisés aléatoirement dans l'espace des données.</li>
+          <li>Attribution des points : chaque point de l'ensemble de données est attribué au cluster dont le centroïde est le plus proche.
+          </li>
+          <li>
+            Mise à jour des centroides : les centroides de chaque cluster sont mis à jour en calculant la moyenne de tous les points du cluster.
+          </li>
+          <li>
+            Répéter : les étapes 2 et 3 sont répétées jusqu'à ce que les centroïdes ne bougent plus ou que le nombre maximum d'itérations soit atteint.          </li>
+        </ul>
+        <p>Ensuite, le résultat final est un ensemble de k clusters, où chaque point est attribué à un cluster spécifique en fonction de sa distance par rapport aux centroïdes.</p>
+        <p>Il convient de noter que la performance de l'algorithme peut être sensible au choix initial des centroides et qu'il peut être nécessaire de répéter l'algorithme plusieurs fois avec différents points de départ pour obtenir des résultats cohérents et satisfaisants.</p>
+        <blockquote class="blockquote">
+            <p>Exemple :</p>
+          </blockquote>
+        <p>  voici un exemple simple d'application de l'algorithme de clustering K-means :</p>
+        <dl>
+          <dt>Supposons que nous avons un ensemble de données 2D composé de 8 points :</dt>
+          <dd>(1, 1), (1.5, 2), (3, 4), (5, 7), (3.5, 5), (4.5, 5), (3.5, 4.5), (4.5, 4)</dd>
+          <dt>Nous voulons diviser ces points en 3 clusters. Nous commençons par initialiser aléatoirement les centroides de chaque cluster. </dt>
+          <dd>Par exemple, nous pouvons choisir les points (1,1), (3,4) et (5,7) comme centroides initiaux.</dd>
+          <dt>Ensuite, nous attribuons chaque point au cluster dont le centroïde est le plus proche. </dt>
+          <dd>Par exemple, le point (1.5,2) serait attribué au cluster dont le centroïde est (1,1), le point (3.5,5) serait attribué au cluster dont le centroïde est (3,4), et ainsi de suite.</dd>
+          <dt>Ensuite, nous mettons à jour les centroides de chaque cluster en calculant la moyenne de tous les points du cluster. </dt>
+          <dd>Par exemple, le nouveau centroïde du premier cluster serait (1.25,1.5) car il contient les points (1,1) et (1.5,2).</dd>
+          <dt>Nous répétons ces étapes d'attribution de points et de mise à jour des centroides jusqu'à ce que les centroides ne bougent plus ou que le nombre maximum d'itérations soit atteint.</dt>
+          <dd>Finalement, nous obtenons trois clusters avec les centroides suivants : <br>
+            Cluster 1 : (1.25,1.5) <br>
+            Cluster 2 : (4,5)<br>
+            Cluster 3 : (4.5,4)<br>
+            </dd>
+        </dl>
+      </article>
+
+      <article class="blog-post">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Clusters</th>
+              <th>centroides </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cluster 1</td>
+              <td>(1.25,1.5)</td>
+            </tr>
+            <tr>
+              <td>Cluster 2</td>
+              <td>(4,5)</td>
+            </tr>
+            <tr>
+              <td>Cluster 3</td>
+              <td>(4.5,5)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Les points sont alors attribués à ces clusters en fonction de leur distance par rapport aux centroides.</p>
+      </article>
+
+    </div>
+</div>
+{% endblock %}

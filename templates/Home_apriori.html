@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block styles %} 
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f2f2f2;
+		justify-content: center;
+        align-items: center;
+        text-align: center;
+	  }
+	  
+	  h1 {
+		color: #333333;
+		text-align: center;
+		margin-top: 50px;
+	  }
+	  
+	  form {
+		max-width: 500px;
+		margin: 0 auto;
+		background-color: #ffffff;
+		padding: 20px;
+		border: 1px solid #dddddd;
+		border-radius: 10px;
+	  }
+	  
+	  label {
+		font-size: 18px;
+		font-weight: bold;
+		display: block;
+		margin-bottom: 10px;
+		color: #333333;
+	  }
+	  
+	  button{
+		background-color: #4CAF50;
+		color: white;
+		padding: 12px 20px;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 18px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	  }
+	  button:hover {
+		background-color: #3e8e41;
+	  }
+</style>
+{% endblock %}
+{% block content %}
+  <div class="container-fluid">
+	<h1>Apriori Algorithm</h1>
+	<div>
+        <form action="/data_set/apriori_csv/" method="get">
+            <button type="submit">With csv</button>
+        </form>
+    </div>
+    <div>
+        <form action="/data_set/apriori/" method="get">
+            <button type="submit">Without csv</button>
+        </form>
+    </div>
+  </div>
+{% endblock %}

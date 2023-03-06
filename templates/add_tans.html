@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block styles %} 
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f2f2f2;
+	  }
+	  
+	  h1 {
+		color: #333333;
+		text-align: center;
+		margin-top: 50px;
+	  }
+	  
+	  form {
+		max-width: 500px;
+		margin: 0 auto;
+		background-color: #ffffff;
+		padding: 20px;
+		border: 1px solid #dddddd;
+		border-radius: 10px;
+	  }
+	  
+	  label {
+		font-size: 18px;
+		font-weight: bold;
+		display: block;
+		margin-bottom: 10px;
+		color: #333333;
+	  }
+	  
+	  textarea {
+		height: 200px;
+		resize: vertical;
+		font-size: 16px;
+		border-radius: 5px;
+		padding: 10px;
+		border: 1px solid #cccccc;
+	  }
+	  
+	  input[type="number"] {
+		height: 30px;
+		font-size: 16px;
+		border-radius: 5px;
+		padding: 5px;
+		border: 1px solid #cccccc;
+	  }
+	  
+	  input[type="submit"] {
+		background-color: #4CAF50;
+		color: white;
+		padding: 12px 20px;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 18px;
+		margin-top: 10px;
+	  }
+	  
+	  input[type="submit"]:hover {
+		background-color: #3e8e41;
+	  }
+</style>
+{% endblock %}
+
+	<h1>Apriori Algorithm</h1>
+	<div>
+	<form method="POST" action="{% url 'apriori_results' %}">
+		{% csrf_token %}
+		<label for="transactions">Enter transactions:</label><br>
+		<textarea id="transactions" name="transactions" rows="10" cols="50"></textarea><br>
+        <label for="min_support">Minimum Support:</label>
+        <input type="number" step="0.01" name="min_support" id="min_support" value="0.1"><br><br>
+        <label for="min_confidence">Minimum Confidence:</label>
+        <input type="number" step="0.01" name="min_confidence" id="min_confidence" value="0.5"><br><br>
+		<input type="submit" class="banner-btn" value="Submit">
+	</form> 
+</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row g-5">
+    <div class="col-md-8">
+      <h1 class="pb-4 mb-4 fst-italic border-bottom">
+        K-nearest neighbors
+      </h1>
+
+      <article class="blog-post">
+        <h2 class="blog-post-title">C’est quoi le KMeans  </h2>
+        <p>KNN (K-nearest neighbors) est un algorithme d'apprentissage supervisé utilisé pour la classification et la régression. </p>
+        <h2>les étapes de base de KNN</h2>
+        <p>Voici les étapes de base de l'algorithme :</p>
+
+        <ul>
+          <li>Charger les données d'entraînement : les données sont chargées à partir d'un ensemble de données étiquetées contenant des exemples d'entrée et de sortie. Chaque exemple d'entrée est une caractéristique (ou un vecteur de caractéristiques) 
+            et chaque sortie est une étiquette de classe correspondante.</li>
+          <li>
+            Définir le nombre de voisins : le nombre de voisins k est défini, qui représente le nombre de points de données les plus proches à considérer pour la classification d'un nouveau point.
+          </li>
+          <li>
+            Calculer les distances : la distance entre le nouveau point et chaque point de données d'entraînement est calculée. La distance peut être calculée à l'aide de différentes mesures, telles que la distance euclidienne ou la distance de Manhattan.          
+        </li>
+          <li>
+            Identifier les k plus proches voisins : les k points de données les plus proches du nouveau point sont identifiés en fonction de la distance calculée.
+        </li>
+        <li>
+           Vote majoritaire : la classe la plus fréquente parmi les k voisins est choisie comme la classe prédite pour le nouveau point. Dans le cas où il y a égalité de votes, une stratégie de résolution de lien peut être utilisée pour choisir une classe.
+        </li>
+        <li>
+            6.	Répéter : les étapes 3 à 5 sont répétées pour chaque nouveau point à classer.
+            </li>
+        </ul>
+        <blockquote class="blockquote">
+            <p>Exemple :</p>
+          </blockquote>
+        <p>  
+            Voici un exemple simple d'application de l'algorithme KNN pour la classification :
+        </p>
+        <dl>
+          <dt>Supposons que nous avons un ensemble de données étiquetées contenant des exemples d'entrée et de sortie, comme suit :</dt>
+          <dd>
+            Entrée : (2, 4), Sortie : A<br>
+Entrée : (4, 2), Sortie : A<br>
+Entrée : (4, 6), Sortie : B<br>
+Entrée : (6, 4), Sortie : B<br>
+
+          </dd>
+          <dt>Nous avons également un nouveau point d'entrée (5, 5) que nous voulons classifier. </dt>
+          <dd>Nous pouvons choisir k = 3, ce qui signifie que nous allons considérer les trois points de données les plus proches pour classifier le nouveau point.</dd>
+          <dt>Nous calculons d'abord la distance entre le nouveau point et chaque point de données d'entraînement. Par exemple, la distance entre le nouveau point (5,5) et le premier point de données (2,4) est :</dt>
+          <dd>distance = sqrt((5-2)^2 + (5-4)^2) = 3.605</dd>
+          <dt>Nous identifions ensuite les trois points de données les plus proches : </dt>
+          <dd>
+            Point de données 1 : Distance = 3.605, Classe = A <br>
+Point de données 2 : Distance = 1.414, Classe = A <br>
+Point de données 3 : Distance = 1.414, Classe = B <br>
+
+          </dd>
+          <dt>Nous remarquons que les deux points de données les plus proches sont les points 2 et 3, qui ont des classes différentes. Nous devons donc voter pour déterminer la classe prédite pour le nouveau point.</dt>
+          <dd>
+            Poursuivons l'exemple précédent pour déterminer la classe prédite pour le nouveau point d'entrée (5, 5).
+            </dd>
+        </dl>
+        <p>
+            Comme les deux points de données les plus proches ont des votes égaux, nous devons utiliser une stratégie de résolution de lien pour choisir une classe. Par exemple, nous pouvons choisir la classe du point de données le plus proche. <br>
+
+        </p>       
+        <p>     Le point de données le plus proche est le point 2 avec la classe A. Nous prédisons donc que le nouveau point d'entrée (5, 5) appartient à la classe A. <br>
+        </p> 
+        <p>Dans cet exemple, nous avons utilisé k = 3 pour choisir les trois points de données les plus proches. Si nous avions choisi k = 1, nous aurions simplement choisi le point de données le plus proche pour déterminer la classe prédite. Si nous avions choisi k = 4, nous aurions considéré tous les points de données disponibles pour déterminer la classe prédite. Le choix de la valeur k dépend du problème et peut être choisi en utilisant des techniques d'optimisation, telles que la validation croisée.
+
+        </p>
+      </article>
+
+      <article class="blog-post">
+        <h2>KNN </h2>
+        Entrées : <br>
+•	X_train : ensemble de données d'entraînement (caractéristiques)<br>
+•	y_train : étiquettes de classe correspondantes pour l'ensemble d'entraînement<br>
+•	X_test : ensemble de données à classifier (caractéristiques)<br>
+•	k : nombre de voisins à considérer<br>
+•	distance_measure : mesure de distance à utiliser<br>
+Sortie :<br>
+•	y_pred : les étiquettes de classe prédites pour chaque exemple de données de l'ensemble <br>
+1.	Pour chaque exemple de données de X_test : <br>
+a. Calculer la distance entre cet exemple et chaque exemple de données de X_train en utilisant la mesure de distance choisie <br>
+b. Identifier les k exemples de données les plus proches <br>
+c. Voter pour la classe la plus fréquente parmi les k voisins<br>
+ d. Assigner la classe prédite à l'exemple de données<br>
+2.	Retourner y_pred <br><br>
+<blockquote class="blockquote">
+    <p>Explication :</p>
+  </blockquote>
+        <p>
+            Cet algorithme est difficile à interpréter sans plus de contexte sur la nature du problème auquel il se rapporte et les variables impliquées.
+        </p>
+        <p>
+            Cependant, je peux vous donner une idée générale de ce qui se passe dans l'algorithme.
+        </p>
+        <p>
+            Il semble que l'algorithme prenne en entrée des variables W0, W1, s, et k, qui sont utilisées pour calculer un nombre de combinaisons possibles (NumbComb). L'algorithme contient plusieurs conditions if-else qui déterminent comment les variables doivent être utilisées pour calculer NumbComb.        
+        </p>
+        <p>
+            La fonction Pos_Weights(W1, s, K) calcule apparemment le nombre de combinaisons possibles de poids positifs (W1) qui donnent une somme s et ont une longueur de K.        
+        </p>
+        <p>
+            La fonction compute_numb_comb(W1, W2, s, k, L1, L2) semble calculer le nombre de combinaisons possibles entre W1 et W2, en utilisant les valeurs de s et k ainsi que les longueurs de W1 et W2.        
+        </p>
+        <p>
+            La fonction PosNeg_Weights(W0, W1[1 : L1 −1], K −1, s−w1/L1) semble calculer le nombre de combinaisons possibles de poids positifs et négatifs (W0 et W1), en utilisant une combinaison de longueurs et de sommes pour chaque ensemble de poids.   
+        </p>
+        <p>
+            En fin de compte, l'algorithme renvoie NumbComb, qui représente le nombre de combinaisons possibles calculées en fonction des entrées fournies.
+        </p>
+      </article>
+
+    </div>
+</div>
+{% endblock %}

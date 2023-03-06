@@ -50,9 +50,47 @@
         cursor: pointer;
       }
     
-      button-col:hover {
+      .button-col:hover {
         background-color: #006666;
       }
+      /* Set background color */
+.body-style {
+  background-color: #f2f2f2;
+}
+
+/* Center main content */
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style headings */
+.main-content>.h1-style {
+  font-size: 48px;
+  text-align: center;
+  margin-top: 0;
+  color: #008080;
+}
+
+/* Style paragraphs */
+.main-content>.p-style {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #777777;
+  margin-bottom: 20px;
+}
+
+/* Style links */
+.a-style {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+.a-style:hover {
+  text-decoration: underline;
+}
+
 </style>
 {% endblock %}
 <body>
@@ -94,15 +132,28 @@
       </nav>
     <main class="container mt-5 pt-5">
         {% block content %}
-        <h1>Welcome to Data_Mining App</h1>
+        <div class="main-content">
+        <h1 class="h1-style">Welcome to Data_Mining App</h1>
+        <p class="p-style mt-5">
+          Bienvenue sur notre site web de Data Mining ! Nous sommes une équipe d'experts en analyse de données et nous offrons une variété de méthodes pour vous aider à explorer, modéliser et prédire vos données.
+<br><br>
+Nous proposons des techniques prédictives telles que la régression linéaire, les arbres de décision et la classification par k-means. Ces outils vous permettent de faire des prévisions basées sur des tendances et des comportements passés, afin de vous aider à prendre des décisions éclairées pour l'avenir.
+<br><br>
+Mais nous ne sommes pas seulement limités aux méthodes prédictives. Nous offrons également des techniques non prédictives comme l'analyse de cluster et la visualisation de données. Ces outils sont particulièrement utiles lorsqu'il s'agit d'explorer des données sans avoir de préjugés quant aux résultats attendus.
+<br><br>
+Notre objectif est de fournir à nos clients des solutions valides et précises pour leurs besoins en matière de données, en allant au-delà de ce qu'ils peuvent trouver dans des logiciels standard. Nous travaillons avec vous pour comprendre les défis spécifiques de vos données et pour élaborer des modèles efficaces pour les résoudre.
+<br><br>
+Explorez notre site pour découvrir l'éventail complet de nos services et n'hésitez pas à nous contacter pour plus d'informations.
+        </p>
+      </div>
         {% endblock %}
         <div class="container">
               <ul class="nav justify-content-center mt-5">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">KMeans</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">KNN</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Apriori & GenRules</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="{% url 'kmeans-blog' %}" class="nav-link px-2 text-muted">KMeans</a></li>
+                <li class="nav-item"><a href="{% url 'knn_blog' %}" class="nav-link px-2 text-muted">KNN</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Apriori & GenRules</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">About Us</a></li>
               </ul>
           </div>
         <div class="container">

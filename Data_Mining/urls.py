@@ -18,7 +18,7 @@ from django.urls import include, path
 from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('https://bestways25.github.io/Data_Mining/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('kmeansapp/', include('kmeans_app.urls')),
     path('knnapp/', include('Knn_app.urls')),
     path('Apririo/', include('Apriori_GenRul.urls')),
